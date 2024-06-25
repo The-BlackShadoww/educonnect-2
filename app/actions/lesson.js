@@ -12,10 +12,8 @@ export async function createLesson(data) {
         const moduleId = data.get("moduleId");
         const order = data.get("order");
 
-        console.log(title, slug, moduleId, order);
-
         const createdLesson = await create({ title, slug, order });
-        console.log(createdLesson);
+        // console.log(createdLesson);
 
         const module_ = await Module.findById(moduleId);
         module_.lessonIds.push(createdLesson._id);

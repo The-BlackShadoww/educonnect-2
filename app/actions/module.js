@@ -13,6 +13,7 @@ export async function createModule(data) {
         const courseId = data.get("courseId");
         const order = data.get("order");
 
+        //! Create the new module
         const createdModule = await create({
             title,
             slug,
@@ -20,6 +21,7 @@ export async function createModule(data) {
             order,
         });
 
+        //! push the module to the course that the module is created for. 
         const course = await Course.findById(courseId);
         course.modules.push(createdModule._id);
         course.save();

@@ -1,13 +1,9 @@
 "use client";
 
 import { Trash } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
-
 import { useState } from "react";
-
 import { toast } from "sonner";
-
 import { changeLessonPublishState, deleteLesson } from "@/app/actions/lesson";
 
 export const LessonActions = ({ lesson, moduleId, onDelete }) => {
@@ -21,7 +17,9 @@ export const LessonActions = ({ lesson, moduleId, onDelete }) => {
         try {
             switch (action) {
                 case "change-active": {
-                    const activeState = await changeLessonPublishState(lesson.id);
+                    const activeState = await changeLessonPublishState(
+                        lesson.id
+                    );
                     setPublished(!activeState);
                     toast.success("The lesson has been updated");
                     break;
@@ -29,7 +27,9 @@ export const LessonActions = ({ lesson, moduleId, onDelete }) => {
 
                 case "delete": {
                     if (published) {
-                        toast.error("A published lesson can not be deleted. First unpublish it, then delete.")
+                        toast.error(
+                            "A published lesson can not be deleted. First unpublished it, then delete."
+                        );
                     } else {
                         await deleteLesson(lesson.id, moduleId);
                         onDelete();
@@ -38,10 +38,9 @@ export const LessonActions = ({ lesson, moduleId, onDelete }) => {
                 }
 
                 default: {
-                    throw new Error("Invalid Lesson Action")
+                    throw new Error("Invalid Lesson Action");
                 }
             }
-
         } catch (e) {
             toast.error(e.message);
         }

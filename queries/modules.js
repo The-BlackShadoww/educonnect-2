@@ -4,32 +4,32 @@ import { Lesson } from "@/model/lesson.model";
 
 export async function create(moduleData) {
     try {
-        const module = await Module.create(moduleData);
-        return JSON.parse(JSON.stringify(module));
+        const module_ = await Module.create(moduleData);
+        return JSON.parse(JSON.stringify(module_));
     } catch (e) {
-        throw new Error(e)
+        throw new Error(e);
     }
 }
 
 export async function getModule(moduleId) {
     try {
-        const module = await Module.findById(moduleId).
-        populate({
-            path: "lessonIds",
-            model: Lesson
-        }).
-        lean();
-        return replaceMongoIdInObject(module);
+        const module_ = await Module.findById(moduleId)
+            .populate({
+                path: "lessonIds",
+                model: Lesson,
+            })
+            .lean();
+        return replaceMongoIdInObject(module_);
     } catch (e) {
-        throw new Error(e)
+        throw new Error(e);
     }
 }
 
 export async function getModuleBySlug(moduleSlug) {
     try {
-        const module = await Module.findOne({slug: moduleSlug}).lean();
-        return replaceMongoIdInObject(module);
-    } catch(err) {
+        const module_ = await Module.findOne({ slug: moduleSlug }).lean();
+        return replaceMongoIdInObject(module_);
+    } catch (err) {
         throw new Error(err);
     }
 }
