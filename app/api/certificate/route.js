@@ -6,6 +6,7 @@ import { getLoggedInUser } from "@/lib/loggedin-user";
 import { getAReport } from "@/queries/reports";
 
 import { formatMyDate } from "@/lib/date";
+import { dbConnect } from "@/service/mongo";
 
 // Fetch custom fonts
 const kalamFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/kalam/Kalam-Regular.ttf`;
@@ -38,6 +39,7 @@ console.log({
 });
 
 export async function GET(request) {
+    await dbConnect();
     try {
         /* -----------------
          *
