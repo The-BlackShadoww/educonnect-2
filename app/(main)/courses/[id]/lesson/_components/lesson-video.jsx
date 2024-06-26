@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import ReactPlayer from "react-player/youtube";
 import { useState, useEffect } from "react";
@@ -14,59 +14,59 @@ export const LessonVideo = ({ courseId, lesson, module }) => {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-          setHasWindow(true);
+            setHasWindow(true);
         }
     }, []);
 
     useEffect(() => {
         async function updateLessonWatch() {
-          const response = await fetch("/api/lesson-watch", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              courseId: courseId,
-              lessonId: lesson.id,
-              moduleSlug: module,
-              state: "started",
-              lastTime: 0
-            })
-          });
+            const response = await fetch("/api/lesson-watch", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    courseId: courseId,
+                    lessonId: lesson.id,
+                    moduleSlug: module,
+                    state: "started",
+                    lastTime: 0,
+                }),
+            });
 
-          if (response.status === 200) {
-            const result = await response.text();
-            console.log(result);
-            setStarted(false);
-          }
+            if (response.status === 200) {
+                const result = await response.text();
+                console.log(result);
+                setStarted(false);
+            }
         }
         started && updateLessonWatch();
-      }, [started]);
+    }, [started]);
 
-      useEffect(() => {
+    useEffect(() => {
         async function updateLessonWatch() {
-          const response = await fetch("/api/lesson-watch", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              courseId: courseId,
-              lessonId: lesson.id,
-              moduleSlug: module,
-              state: "completed",
-              lastTime: duration
-            })
-          });
+            const response = await fetch("/api/lesson-watch", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    courseId: courseId,
+                    lessonId: lesson.id,
+                    moduleSlug: module,
+                    state: "completed",
+                    lastTime: duration,
+                }),
+            });
 
-          if (response.status === 200) {
-            const result = await response.text();
-            setEnded(false);
-            router.refresh();
-          }
+            if (response.status === 200) {
+                const result = await response.text();
+                setEnded(false);
+                router.refresh();
+            }
         }
         ended && updateLessonWatch();
-      }, [ended]);
+    }, [ended]);
 
     function handleOnStart() {
         console.log("handleOnStart");
@@ -87,12 +87,12 @@ export const LessonVideo = ({ courseId, lesson, module }) => {
         //console.log("handleOnProgress", state);
     }
 
-    return(
+    return (
         <>
-        {
-            hasWindow && (
+            {hasWindow && (
                 <ReactPlayer
                     url={lesson.video_url}
+                    // url="https://www.youtube.com/embed/666K4aizIu8?si=hgMgYujVVL4R8Dr_"
                     width="100%"
                     height="470px"
                     controls={true}
@@ -100,9 +100,8 @@ export const LessonVideo = ({ courseId, lesson, module }) => {
                     onDuration={handleOnDuration}
                     onProgress={handleOnProgress}
                     onEnded={handleOnEnded}
-                    />
-            )
-        }
+                />
+            )}
         </>
-    )
-}
+    );
+};

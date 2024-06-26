@@ -6,7 +6,7 @@ import { ReviewModal } from "./review-modal";
 
 export const GiveReview = () => {
     const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
-    return(
+    return (
         <>
             <Button
                 onClick={() => setIsReviewModalOpen(true)}
@@ -15,7 +15,10 @@ export const GiveReview = () => {
             >
                 Give Review
             </Button>
-            <ReviewModal open={isReviewModalOpen} setOpen={setIsReviewModalOpen} />
+            <ReviewModal
+                open={isReviewModalOpen}
+                setOpen={setIsReviewModalOpen}
+            />
         </>
-    )
-}
+    );
+};
