@@ -8,6 +8,8 @@ import {
 const CoursesPage = async () => {
     const courses = await getInstructorDashboardData(COURSE_DATA);
 
+    console.log(courses);
+
     return (
         <div className="p-6">
             <DataTable columns={columns} data={courses} />
