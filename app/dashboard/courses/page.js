@@ -5,10 +5,11 @@ import {
     COURSE_DATA,
 } from "@/lib/dashboard-helper";
 
+//! what is force-dynamic???
+export const dynamic = "force-dynamic";
+
 const CoursesPage = async () => {
     const courses = await getInstructorDashboardData(COURSE_DATA);
-
-    console.log(courses);
 
     return (
         <div className="p-6">
