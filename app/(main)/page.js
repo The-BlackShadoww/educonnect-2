@@ -17,10 +17,10 @@ const HomePage = async () => {
     return (
         <>
             <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 grainy">
-                <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center relative isolate">
+                <div className="container flex max-w-[64rem] h-[65vh] flex-col items-center justify-center gap-4 text-center relative isolate">
                     <div
                         aria-hidden="true"
-                        className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                        className="pointer-events-none absolute inset-x-0 -top-60 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                     >
                         <div
                             style={{
