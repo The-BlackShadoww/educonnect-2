@@ -16,8 +16,8 @@ const HomePage = async () => {
 
     return (
         <>
-            <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 grainy">
-                <div className="container flex max-w-[64rem] h-[65vh] flex-col items-center justify-center gap-4 text-center relative isolate">
+            <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-[232px] grainy">
+                <div className="container flex max-w-[64rem] h-auto flex-col items-center justify-center text-center relative isolate">
                     <div
                         aria-hidden="true"
                         className="pointer-events-none absolute inset-x-0 -top-60 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -30,15 +30,15 @@ const HomePage = async () => {
                             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                         />
                     </div>
-                    <span className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium border shadow-lg">
+                    <span className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium border shadow-lg mb-2">
                         Hey, Welcome
                     </span>
-                    <h1 className="font-heading text-3xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+                    <h1 className="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-8xl mb-8">
                         Learn Today, Lead Tomorrow.
                     </h1>
-                    <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-                        “You don’t understand anything until you learn it more
-                        than one way.”
+                    <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8 mb-16">
+                        You don’t understand anything until you learn it more
+                        than one way.
                     </p>
                     <div className="flex items-center gap-3 flex-wrap justify-center">
                         <Link
