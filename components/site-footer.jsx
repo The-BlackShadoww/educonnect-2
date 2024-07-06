@@ -15,33 +15,38 @@ export function SiteFooter({ className }) {
                 { title: "products", href: "#" },
                 { title: "courses", href: "#" },
                 { title: "websites", href: "#" },
+                { title: "payment", href: "#" },
+                { title: "analytics", href: "#" },
+                { title: "funnels", href: "#" },
+                { title: "memberships", href: "#" },
             ],
         },
         {
             name: "company",
             links: [
-                { title: "pricing", href: "#" },
-                { title: "products", href: "#" },
-                { title: "courses", href: "#" },
-                { title: "websites", href: "#" },
+                { title: "about us", href: "#" },
+                { title: "career", href: "#" },
+                { title: "press", href: "#" },
+                { title: "community", href: "#" },
             ],
         },
         {
-            name: "company",
+            name: "Legal",
             links: [
-                { title: "pricing", href: "#" },
-                { title: "products", href: "#" },
-                { title: "courses", href: "#" },
-                { title: "websites", href: "#" },
+                { title: "privacy", href: "#" },
+                { title: "terms and conditions", href: "#" },
+                { title: "refund policy", href: "#" },
+                { title: "affiliate", href: "#" },
             ],
         },
         {
-            name: "company",
+            name: "support",
             links: [
-                { title: "pricing", href: "#" },
-                { title: "products", href: "#" },
-                { title: "courses", href: "#" },
-                { title: "websites", href: "#" },
+                { title: "FAQs", href: "#" },
+                { title: "contact us", href: "#" },
+                { title: "documentations", href: "#" },
+                { title: "social groups", href: "#" },
+                { title: "experts", href: "#" },
             ],
         },
     ];
@@ -52,11 +57,11 @@ export function SiteFooter({ className }) {
             link: "",
         },
         {
-            icon: <BsTwitterX />,
+            icon: <FaLinkedinIn />,
             link: "",
         },
         {
-            icon: <FaLinkedinIn />,
+            icon: <FaYoutube />,
             link: "",
         },
         {
@@ -66,12 +71,15 @@ export function SiteFooter({ className }) {
     ];
 
     const showLinks = links.map((link, i) => (
-        <div key={i} className="md:basis-[25%] basis-[50%] bg-indigo-300">
+        <div key={i} className="md:basis-[25%] basis-[50%] ">
             <h4 className="uppercase mb-4">{link.name}</h4>
             <ul>
                 {link.links.map((l, i) => (
                     <li key={i} className="mb-2">
-                        <Link href={"#"} className="capitalize">
+                        <Link
+                            href={"#"}
+                            className="capitalize text-[#000]/75 hover:text-[#000000]"
+                        >
                             {l.title}
                         </Link>
                     </li>
@@ -82,14 +90,14 @@ export function SiteFooter({ className }) {
 
     return (
         <footer className="bg-[#FAF9F6]">
-            <div className="container tab:py-[96px] sm:py-[64px] py-[32px] flex tab:flex-row flex-col gap-16 px-6 border">
+            <div className="container tab:py-[96px] sm:py-[64px] py-[32px] flex tab:flex-row flex-col gap-16 px-6">
                 <div className="tab:basis-[30%] basis-full">
                     <Logo />
                     <p className="mt-6">
                         Join EduConnect today and unlock endless possibilities.
                         Sign up now for exclusive courses and resources!
                     </p>
-                    <div className="flex mt-8">
+                    <div className="flex items-center mt-8">
                         {socials.map((item, i) => (
                             <Link href={item.link} key={i} className="mr-4">
                                 {item.icon}
