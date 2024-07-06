@@ -7,14 +7,19 @@ import { getCourseDetailsByInstructor } from "@/queries/courses";
 
 import Image from "next/image";
 
-const CourseInstructor = async ({course}) => {
+const CourseInstructor = async ({ course }) => {
     const instructor = course?.instructor;
 
+    console.log(course);
+
+    console.log(instructor);
+
     const fullName = `${instructor?.firstName}  ${instructor?.lastName}`;
-    const courseDetailsByInstructor = await getCourseDetailsByInstructor(instructor._id.toString());
+    const courseDetailsByInstructor = await getCourseDetailsByInstructor(  
+        instructor?._id?.toString()
+    );
 
-    console.log(courseDetailsByInstructor)
-
+    console.log(courseDetailsByInstructor);
 
     return (
         <div className="bg-gray-50 rounded-md p-8">
@@ -39,27 +44,36 @@ const CourseInstructor = async ({course}) => {
                         <ul className="list space-y-4">
                             <li className="flex items-center space-x-3">
                                 <Presentation className="text-gray-600" />
-                                <div>{courseDetailsByInstructor?.courses} Course(s)</div>
+                                <div>
+                                    {courseDetailsByInstructor?.courses}{" "}
+                                    Course(s)
+                                </div>
                             </li>
                             <li className="flex space-x-3">
                                 <UsersRound className="text-gray-600" />
-                                <div>{courseDetailsByInstructor?.enrollments} Student Learned</div>
+                                <div>
+                                    {courseDetailsByInstructor?.enrollments}{" "}
+                                    Student Learned
+                                </div>
                             </li>
                             <li className="flex space-x-3">
                                 <MessageSquare className="text-gray-600" />
-                                <div>{courseDetailsByInstructor?.reviews} Reviews</div>
+                                <div>
+                                    {courseDetailsByInstructor?.reviews} Reviews
+                                </div>
                             </li>
                             <li className="flex space-x-3">
                                 <Star className="text-gray-600" />
-                                <div>{courseDetailsByInstructor?.ratings} Average Rating</div>
+                                <div>
+                                    {courseDetailsByInstructor?.ratings} Average
+                                    Rating
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <p className="text-gray-600">
-                {instructor?.bio}
-            </p>
+            <p className="text-gray-600">{instructor?.bio}</p>
         </div>
     );
 };
