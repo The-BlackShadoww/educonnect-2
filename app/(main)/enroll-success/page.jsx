@@ -13,8 +13,6 @@ import { sendEmails } from "@/lib/emails";
 import { enrollForCourse } from "@/queries/enrollments";
 
 const Success = async ({ searchParams: { session_id, courseId } }) => {
-    console.log(session_id, courseId);
-
     if (!session_id)
         throw new Error(
             "Please provide a valid session id that starts with cs_"
@@ -53,9 +51,9 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
         // Update DB(Enrollment collection)
         console.log(course?.id, loggedInUser?.id);
         const enrolled = await enrollForCourse(
-          course?.id,
-          loggedInUser?.id,
-          "stripe"
+            course?.id,
+            loggedInUser?.id,
+            "stripe"
         );
         console.log(enrolled);
 
@@ -65,22 +63,20 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
         const instructorName = `${course?.instructor?.firstName} ${course?.instructor?.lastName}`;
         const instructorEmail = course?.instructor?.email;
 
-
         const emailsToSend = [
-          {
-            to: instructorEmail,
-            subject: `New Enrollment for ${productName}.`,
-            message: `Congratulations, ${instructorName}. A new student, ${customerName} has enrolled to your course ${productName} just now. Please check the instructor dashboard and give a high-five to your new student.`,
-          },
-          {
-            to: customerEmail,
-            subject: `Enrollment Success for ${productName}`,
-            message: `Hey ${customerName} You have successfully enrolled for the course ${productName}`,
-          }
+            {
+                to: instructorEmail,
+                subject: `New Enrollment for ${productName}.`,
+                message: `Congratulations, ${instructorName}. A new student, ${customerName} has enrolled to your course ${productName} just now. Please check the instructor dashboard and give a high-five to your new student.`,
+            },
+            {
+                to: customerEmail,
+                subject: `Enrollment Success for ${productName}`,
+                message: `Hey ${customerName} You have successfully enrolled for the course ${productName}`,
+            },
         ];
 
         const emailSentResponse = await sendEmails(emailsToSend);
-        console.log(emailSentResponse);
     }
 
     return (
@@ -90,7 +86,9 @@ const Success = async ({ searchParams: { session_id, courseId } }) => {
                     <>
                         <CircleCheck className="w-32 h-32 bg-success rounded-full p-0 text-white" />
                         <h1 className="text-xl md:text-2xl lg:text-3xl">
-                            Congratulations, <strong>{customerName}</strong>! Your Enrollment was Successful for <strong>{productName}</strong>
+                            Congratulations, <strong>{customerName}</strong>!
+                            Your Enrollment was Successful for{" "}
+                            <strong>{productName}</strong>
                         </h1>
                     </>
                 )}
