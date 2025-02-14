@@ -13,13 +13,22 @@ EduConnect is an educational platform designed to connect students and educators
 - Connect students with educators
 - Share educational resources
 - Interactive learning modules
+- OAuth authentication
+- Stripe payment integration
+- Student and instructor accounts
+- Real-time notifications
+- Course management
+- Assignment submission and grading
+- Discussion forums
+- Progress tracking
+- Mobile-friendly design
 
 ## Installation
 To get started with EduConnect, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/educonnect.git
+    git clone https://github.com/The-BlackShadoww/educonnect-2
     ```
 2. Navigate to the project directory:
     ```bash
