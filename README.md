@@ -6,7 +6,6 @@ EduConnect is an educational platform designed to connect students and educators
 - [Features](#features)
 - [Installation](#installation)
 - [Running Locally](#running-locally)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -16,7 +15,6 @@ EduConnect is an educational platform designed to connect students and educators
 - OAuth authentication
 - Stripe payment integration
 - Student and instructor accounts
-- Real-time notifications
 - Course management
 - Assignment submission and grading
 - Discussion forums
@@ -47,9 +45,6 @@ To run the project locally, follow these steps:
     npm start
     ```
 2. Open your browser and navigate to `http://localhost:3000`.
-
-## Contributing
-We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) for more information on how to get started.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
